@@ -1,74 +1,44 @@
- Sistema de Gestión de Concesionario de Vehículos
-Descripción del Proyecto
-Este proyecto es una solución integral de bases de datos diseñada en PostgreSQL para optimizar la gestión de información de un concesionario de vehículos. Su objetivo principal es centralizar y estructurar los datos del inventario, ventas, clientes, servicios de taller y recursos humanos, permitiendo un análisis de datos eficiente para la toma de decisiones.
+# Sistema de Gestión de Concesionario de Vehículos
 
- Tecnologías Utilizadas
-Base de Datos: PostgreSQL
+## Descripción del Proyecto
 
-Lenguaje de Consultas: SQL (DDL, DML, DQL)
+Este exámen tiene como objetivo mejorar la gestión de información en un concesionario de vehículos, utilizando una base de datos diseñada en PostgreSQL y archivos SQL para consultas. Se busca crear una base de datos bien estructurada que incluya detalles sobre el inventario de vehículos, clientes y ventas, historial de servicios, proveedores de piezas, empleados y departamentos. Se prioriza la implementación de consultas específicas para mejorar la eficiencia en la gestión de ventas y servicios, así como para proporcionar análisis útiles para la toma de decisiones.
 
-Diseño: Modelo Entidad-Relación (MER)
+---
 
- Estructura de la Base de Datos (Requerimientos)
+
+## Estructura de la Base de Datos (Requerimientos)
+
 El esquema relacional contempla las siguientes áreas clave del concesionario:
 
-Inventario de Vehículos: Registro detallado de unidades (marca, modelo, año, precio, estado nuevo/usado).
+- **Inventario de Vehículos:** registro detallado de unidades (marca, modelo, año, precio, estado nuevo/usado, disponibilidad).
+- **Clientes y Ventas:** datos personales de compradores e historial de transacciones realizadas.
+- **Historial de Servicios:** registro de mantenimientos y reparaciones, indicando vehículo, empleado a cargo y fecha.
+- **Proveedores de Piezas:** directorio de suministradores de componentes utilizados en el taller.
+- **Empleados y Departamentos:**
+  - *Ventas:* rendimiento comercial, comisiones generadas y transacciones asociadas.
+  - *Servicio:* personal técnico, servicios asignados y horarios de trabajo.
+- **Clientes Potenciales (Leads):** seguimiento de prospectos interesados en vehículos específicos, como insumo para estrategias de marketing.
 
-Clientes y Ventas: Historial de transacciones y datos personales de compradores.
 
-Historial de Servicios: Registro de mantenimientos y reparaciones (vehículo, empleado a cargo, fechas).
+---
 
-Proveedores de Piezas: Directorio de suministradores de componentes para el taller.
+## Consultas Implementadas
 
-Empleados y Departamentos: * Ventas: Rendimiento, comisiones y transacciones.
+1. **Inventario Activo** — Listado de vehículos disponibles para la venta (marca, modelo, precio).
+2. **Actividad Reciente de Clientes** — Clientes con compras recientes junto al vehículo adquirido.
+3. **Trazabilidad de Servicios** — Historial completo de mantenimiento por vehículo (técnicos y fechas incluidos).
+4. **Cadena de Suministro** — Proveedores de las piezas utilizadas en cada mantenimiento.
+5. **Rendimiento Comercial** — Comisiones generadas por cada asesor de ventas en un período específico.
+6. **Productividad Técnica** — Servicios de mantenimiento realizados, filtrados por empleado.
+7. **Estrategia de Marketing (Leads)** — Clientes potenciales cruzados con sus vehículos de interés.
+8. **Gestión de Turnos** — Plantilla del departamento de servicio con sus horarios de trabajo.
+9. **Análisis de Precios** — Vehículos vendidos dentro de un rango de precio específico.
+10. **Fidelización de Clientes** — Clientes con más de una compra registrada en el concesionario.
 
-Servicio: Personal técnico, servicios asignados y horarios.
+---
 
-Clientes Potenciales (Leads): Seguimiento de prospectos interesados en vehículos específicos.
+## Autores
 
- Estructura del Repositorio
-Para desplegar este proyecto, los archivos están organizados de la siguiente manera:
-
-docs/DER_Concesionario.png: Imagen de alta resolución con el Diagrama Entidad-Relación.
-
-sql/01_schema.sql: Scripts de creación de tablas (DDL) y relaciones (Llaves primarias y foráneas).
-
-sql/02_inserts.sql: Scripts de población de datos (DML) para pruebas.
-
-sql/03_queries.sql: Solución a las consultas analíticas y operativas requeridas.
-
-🔍 Consultas Implementadas
-El archivo 03_queries.sql incluye las sentencias para resolver los siguientes requerimientos del negocio:
-
-Inventario Activo: Listado de vehículos disponibles para la venta (marca, modelo, precio).
-
-Actividad Reciente de Clientes: Clientes con compras recientes y detalles del vehículo adquirido.
-
-Trazabilidad de Servicios: Historial completo de mantenimiento por vehículo (incluye técnicos y fechas).
-
-Cadena de Suministro: Proveedores de las piezas utilizadas en los mantenimientos.
-
-Rendimiento Comercial: Cálculo de comisiones generadas por los asesores de ventas en un periodo definido.
-
-Productividad Técnica: Servicios de mantenimiento realizados filtrados por empleado específico.
-
-Estrategia de Marketing (Leads): Cruce de clientes potenciales con sus vehículos de interés.
-
-Gestión de Turnos: Plantilla del departamento de servicio con sus respectivos horarios.
-
-Análisis de Precios: Vehículos vendidos dentro de un rango de precio específico.
-
-Fidelización: Identificación de clientes con compras múltiples (lealtad).
-
- Instrucciones de Ejecución
-Asegúrate de tener PostgreSQL instalado y ejecutándose en tu máquina.
-
-Crea una base de datos vacía para el proyecto (ej. CREATE DATABASE concesionario_db;).
-
-Ejecuta los scripts en el orden establecido en la estructura del repositorio:
-
-Primero, ejecuta 01_schema.sql para construir la estructura.
-
-Segundo, ejecuta 02_inserts.sql para cargar los datos de prueba.
-
-Finalmente, utiliza 03_queries.sql para probar las consultas analíticas.
+- **Juan David Gamboa Orozco**
+- **Luis Esteban Ramirez Campo**
